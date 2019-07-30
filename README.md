@@ -1,2 +1,3 @@
-# aire-bootstrap-4
-Bootstrap 4 theme for Aire (WIP)
+# Bootstrap theme for Aire
+
+This is a work in progress package to add Bootstrap support to Aire.

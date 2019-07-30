@@ -1,0 +1,51 @@
+{
+  "name": "glhd/aire-bootstrap",
+  "description": "Bootstrap themes for Aire",
+  "keywords": [
+    "laravel",
+    "forms",
+    "bootstrap",
+    "aire"
+  ],
+  "authors": [
+    {
+      "name": "Chris Morrell",
+      "homepage": "http://www.cmorrell.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.1",
+    "glhd/aire": "^0.9",
+    "illuminate/support": "5.6.*|5.7.*"
+  },
+  "require-dev": {
+    "orchestra/testbench": "~3.0",
+    "phpunit/phpunit": "^7.3",
+    "mockery/mockery": "^1.1",
+    "php-coveralls/php-coveralls": "^2.1",
+    "laravel/framework": "^5.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "AireBootstrap": "src/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/TestCase.php"
+    ],
+    "psr-4": {
+      "Galahad\\Aire\\Tests\\": "vendor/glhd/aire/tests/",
+      "Galahad\\AireBootstrap4\\Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "stable",
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Galahad\\AireBoostrap\\AireBootstrapServiceProvider"
+      ]
+    }
+  }
+}
