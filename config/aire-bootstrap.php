@@ -24,14 +24,15 @@ return [
 		'checkbox_wrapper' => 'form-check',
 		'checkbox_group_label' => '',
 		'checkbox_group_label_wrapper' => '',
-		'radio_group_label' => '',
-		'radio_group_label_wrapper' => '',
+        'radio_group' => 'form-check-input',
+		'radio_group_label' => 'form-check',
+		'radio_group_label_wrapper' => 'form-check-label',
 		'summary' => '',
-		'button' => '',
-		'select' => '',
-		'textarea' => '',
+		'button' => 'btn btn-primary',
+		'select' => 'form-control',
+		'textarea' => 'form-control',
 	],
-	
+
 	/*
 	|--------------------------------------------------------------------------
 	| Validation Classes
@@ -43,7 +44,7 @@ return [
 	|
 	*/
 	'validation_classes' => [
-		
+
 		/*
 		|--------------------------------------------------------------------------
 		| Not Validated
@@ -59,7 +60,7 @@ return [
 			'group_errors' => '',
 			'group_help_text' => '',
 		],
-		
+
 		/*
 		|--------------------------------------------------------------------------
 		| Valid
@@ -76,7 +77,7 @@ return [
 			'group_errors' => '',
 			'group_help_text' => '',
 		],
-		
+
 		/*
 		|--------------------------------------------------------------------------
 		| Invalid
