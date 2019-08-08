@@ -46,7 +46,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Galahad\\AireBoostrap\\AireBootstrapServiceProvider"
+        "Galahad\\AireBootstrap\\AireBootstrapServiceProvider"
       ]
     }
   }
