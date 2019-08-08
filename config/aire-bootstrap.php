@@ -46,22 +46,24 @@ return [
     'validation_classes' => [
 
         'none' => [
-            'input' => '',
-            'select' => '',
-            'textarea' => '',
+            'input' => 'no-yet-validated',
+            'select' => 'no-yet-validated',
+            'textarea' => 'no-yet-validated',
             'group_errors' => 'hidden',
-            'group_help_text' => '',
+            'group_help_text' => 'no-yet-validated',
         ],
+
         'valid' => [
-            'label' => '',
-            'input' => 'is-valid',
+            'label' => 'is-valid',
+            'checkbox' => 'is-valid',
             'select' => 'is-valid',
             'textarea' => 'is-valid',
             'group_errors' => 'valid-feedback',
             'group_help_text' => 'valid-feedback',
         ],
         'invalid' => [
-            'label' => '',
+            'label' => 'is-invalid',
+            'checkbox' => 'is-invalid',
             'input' => 'is-invalid',
             'select' => 'is-invalid',
             'textarea' => 'is-invalid',
