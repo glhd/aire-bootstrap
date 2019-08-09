@@ -11,10 +11,10 @@
                 {{ $attributes->isValue($prepend_empty_option->value) ? 'checked' : '' }}
                 id="aire-checkbox-{{ \Illuminate\Support\Str::slug($attributes->get('name').'-'.$prepend_empty_option->value) }}">
             />
-            <lable {{ $attributes->label }}
-                   id="aire-checkbox-{{ \Illuminate\Support\Str::slug($attributes->get('name').'-'.$prepend_empty_option->value) }}">
+            <label {{ $attributes->label }}
+                   for="aire-checkbox-{{ \Illuminate\Support\Str::slug($attributes->get('name').'-'.$prepend_empty_option->value) }}">
                 {{ $prepend_empty_option->label }}
-            </lable>
+            </label>
         </div>
     @endisset
 
