@@ -16,7 +16,7 @@
   "license": "MIT",
   "require": {
     "php": ">=7.1",
-    "glhd/aire": "^1.2",
+    "glhd/aire": "^1.4",
     "illuminate/support": "5.6.*|5.7.*|5.8.*"
   },
   "require-dev": {
