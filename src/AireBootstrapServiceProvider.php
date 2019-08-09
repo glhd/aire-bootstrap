@@ -15,8 +15,8 @@ class AireBootstrapServiceProvider extends ServiceProvider
         Aire::setTheme('aire-bootstrap', null, [
             'default_classes' => [
                 'group' => 'form-group',
-                'group_prepend' => '',
-                'group_append' => '',
+                'group_prepend' => 'input-group-prepend',
+                'group_append' => 'input-group-append',
                 'group_help_text' => 'form-text text-muted',
                 'group_errors' => 'not-yet-validated',
                 'label' => '',
@@ -38,15 +38,6 @@ class AireBootstrapServiceProvider extends ServiceProvider
                 'textarea' => 'form-control',
             ],
             'validation_classes' => [
-                'none' => [
-                    'input' => 'no-yet-validated',
-                    'radio' => 'no-yet-validated',
-                    'select' => 'no-yet-validated',
-                    'textarea' => 'no-yet-validated',
-                    'errors' => 'd-none',
-                    'group_errors' => 'd-none',
-                    'group_help_text' => 'no-yet-validated',
-                ],
                 'valid' => [
                     'label' => 'is-valid',
                     'checkbox' => 'is-valid',
