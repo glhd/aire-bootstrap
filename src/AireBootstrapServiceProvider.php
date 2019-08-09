@@ -73,8 +73,8 @@ class AireBootstrapServiceProvider extends ServiceProvider
         });
 
         Input::registerElementMutator(function (Input $input) {
-            $input->attributes->input_group->registerMutator('class', function (ClassNames $classNames) use ($input) {
 
+            $input->group->attributes->input_group->registerMutator('class', function (ClassNames $classNames) use ($input) {
                 if ($input->attributes->primary()->class->has('form-control-sm')) {
                     $classNames->add('input-group-sm');
                 }
