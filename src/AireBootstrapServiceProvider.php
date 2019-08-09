@@ -2,7 +2,9 @@
 
 namespace Galahad\AireBootstrap;
 
+use Galahad\Aire\Elements\Attributes\ClassNames;
 use Galahad\Aire\Elements\Checkbox;
+use Galahad\Aire\Elements\Input;
 use Galahad\Aire\Support\Facades\Aire;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,10 +17,11 @@ class AireBootstrapServiceProvider extends ServiceProvider
         Aire::setTheme('aire-bootstrap', null, [
             'default_classes' => [
                 'group' => 'form-group',
+                'group_input_group' => 'input-group',
                 'group_prepend' => 'input-group-prepend',
                 'group_append' => 'input-group-append',
                 'group_help_text' => 'form-text text-muted',
-                'group_errors' => 'not-yet-validated',
+                'group_errors' => '',
                 'label' => '',
                 'input' => 'form-control',
                 'checkbox' => 'custom-control-input',
@@ -67,6 +70,32 @@ class AireBootstrapServiceProvider extends ServiceProvider
 
         Checkbox::registerElementMutator(function (Checkbox $checkbox) {
             $checkbox->group->addClass('custom-control custom-checkbox');
+        });
+
+        Input::registerElementMutator(function (Input $input) {
+            $input->attributes->input_group->registerMutator('class', function (ClassNames $classNames) use ($input) {
+
+                if ($input->attributes->primary()->class->has('form-control-sm')) {
+                    $classNames->add('input-group-sm');
+                }
+
+                if ($input->attributes->primary()->class->has('form-control-lg')) {
+                    $classNames->add('input-group-lg');
+                }
+
+                return $classNames;
+            });
+
+            $input->attributes->registerMutator('class', function (ClassNames $classNames) use ($input) {
+
+                if ('range' === $input->attributes->get('type')) {
+                    $classNames
+                        ->remove('form-control')
+                        ->add('form-control-range');
+                }
+
+                return $classNames;
+            });
         });
     }
 }
