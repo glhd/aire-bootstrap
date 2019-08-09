@@ -24,9 +24,11 @@ return [
         'checkbox_wrapper' => 'form-check',
         'checkbox_group_label' => '',
         'checkbox_group_label_wrapper' => '',
-        'radio_group' => 'form-check-input',
-        'radio_group_label' => 'form-check',
-        'radio_group_label_wrapper' => 'form-check-label',
+
+        'radio_group' => 'custom-control-input',
+        'radio_group_label' => 'custom-control-label',
+        'radio_group_label_wrapper' => 'custom-control custom-radio',
+
         'summary' => '',
         'button' => 'btn btn-primary',
         'select' => 'form-control',
@@ -47,6 +49,7 @@ return [
 
         'none' => [
             'input' => 'no-yet-validated',
+            'radio' => 'no-yet-validated',
             'select' => 'no-yet-validated',
             'textarea' => 'no-yet-validated',
             'group_errors' => 'hidden',
@@ -56,6 +59,9 @@ return [
         'valid' => [
             'label' => 'is-valid',
             'checkbox' => 'is-valid',
+            'radio' => 'is-valid',
+            'radio-group' => 'is-valid',
+            'input' => 'is-valid',
             'select' => 'is-valid',
             'textarea' => 'is-valid',
             'group_errors' => 'valid-feedback',
@@ -64,6 +70,8 @@ return [
         'invalid' => [
             'label' => 'is-invalid',
             'checkbox' => 'is-invalid',
+            'radio-group' => 'is-invalid',
+            'radio' => 'is-invalid',
             'input' => 'is-invalid',
             'select' => 'is-invalid',
             'textarea' => 'is-invalid',
