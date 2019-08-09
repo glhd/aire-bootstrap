@@ -1,3 +1,9 @@
-# Bootstrap theme for Aire
+# Bootstrap theme for Aire 
+https://github.com/glhd/aire
 
-This is a work in progress package to add Bootstrap support to Aire.
+## Installation
+Install via composer with:
+
+```
+composer require glhd/aire-bootstrap
+```
