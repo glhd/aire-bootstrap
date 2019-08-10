@@ -4,7 +4,7 @@
     {{ $label }}
 
     @if($prepend || $append)
-        <div class="input-group">
+        <div {{ $attributes->input_group }}>
             @if($prepend)
                 <div {{ $attributes->prepend }}>
                     <div class="input-group-text">

@@ -24,6 +24,7 @@ class AireBootstrapServiceProvider extends ServiceProvider
                 'group_errors' => 'd-none',
                 'label' => '',
                 'input' => 'form-control',
+
                 'checkbox' => 'custom-control-input',
                 'checkbox_label' => 'custom-control-label',
                 'checkbox_wrapper' => 'custom-control custom-checkbox',
@@ -66,6 +67,69 @@ class AireBootstrapServiceProvider extends ServiceProvider
                     'group_help_text' => 'invalid-feedback d-block',
                 ],
             ],
+            'variant_classes' => [
+                'input' => [
+                    'default' => 'form-control',
+                    'sm' => 'form-control-sm',
+                    'lg' => 'form-control-lg',
+                ],
+                'group_input_group' => [
+                    'default' => 'input-group',
+                    'sm' => 'input-group-sm',
+                    'lg' => 'input-group-lg',
+                ],
+                'group_input_range' => [
+                    'default' => [
+                        'display' => 'range-default'
+                    ]
+                ],
+                'select' => [
+                    'default' => [
+                        'display' => 'custom-select',
+                        'size' => '',
+                        'color' => '',
+                    ],
+                    'sm' => 'custom-select-sm',
+                    'lg' => 'custom-select-lg',
+                ],
+                'button' => [
+                    'default' => [
+                        'display' => 'btn',
+                        'size' => '',
+                        'color' => 'btn-primary',
+                    ],
+                    'sm' => [
+                        'size' => 'btn-sm',
+                    ],
+                    'lg' => [
+                        'size' => 'btn-sm',
+                    ],
+                    'primary' => [
+                        'color' => 'btn-primary'
+                    ],
+                    'secondary' => [
+                        'color' => 'btn-secondary'
+                    ],
+                    'success' => [
+                        'color' => 'btn-success'
+                    ],
+                    'danger' => [
+                        'color' => 'btn-danger'
+                    ],
+                    'warning' => [
+                        'color' => 'btn-warning'
+                    ],
+                    'info' => [
+                        'color' => 'btn-info'
+                    ],
+                    'light' => [
+                        'color' => 'btn-light'
+                    ],
+                    'dark' => [
+                        'color' => 'btn-dark'
+                    ],
+                ]
+            ]
         ]);
 
         Checkbox::registerElementMutator(function (Checkbox $checkbox) {
@@ -73,40 +137,6 @@ class AireBootstrapServiceProvider extends ServiceProvider
         });
 
         Input::registerElementMutator(function (Input $input) {
-            $input->attributes->registerMutator('class', function (ClassNames $classNames) use ($input) {
-                if (in_array($input->getViewData('variant'), ['sm', 'small'])) {
-                    $classNames->add('form-control-sm');
-                }
-
-                if (in_array($input->getViewData('variant'), ['lg', 'large'])) {
-                    $classNames->add('form-control-lg');
-                }
-
-                return $classNames;
-            });
-
-            $input->group->attributes->input_group->registerMutator('class', function (ClassNames $classNames) use ($input) {
-
-                if ($input->attributes->primary()->class->has('form-control-sm')) {
-                    $classNames->add('input-group-sm');
-                }
-
-                if ($input->attributes->primary()->class->has('form-control-lg')) {
-                    $classNames->add('input-group-lg');
-                }
-
-                if (in_array($input->getViewData('variant'), ['sm', 'small'])) {
-                    $classNames->add('input-group-sm');
-                }
-
-                if (in_array($input->getViewData('variant'), ['lg', 'large'])) {
-                    $classNames->add('input-group-lg');
-                }
-
-
-                return $classNames;
-            });
-
             $input->attributes->registerMutator('class', function (ClassNames $classNames) use ($input) {
 
                 if ('range' === $input->attributes->get('type')) {
