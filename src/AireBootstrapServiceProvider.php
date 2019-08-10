@@ -21,7 +21,7 @@ class AireBootstrapServiceProvider extends ServiceProvider
                 'group_prepend' => 'input-group-prepend',
                 'group_append' => 'input-group-append',
                 'group_help_text' => 'form-text text-muted',
-                'group_errors' => '',
+                'group_errors' => 'd-none',
                 'label' => '',
                 'input' => 'form-control',
                 'checkbox' => 'custom-control-input',
@@ -73,8 +73,20 @@ class AireBootstrapServiceProvider extends ServiceProvider
         });
 
         Input::registerElementMutator(function (Input $input) {
+            $input->attributes->registerMutator('class', function (ClassNames $classNames) use ($input) {
+                if (in_array($input->getViewData('variant'), ['sm', 'small'])) {
+                    $classNames->add('form-control-sm');
+                }
+
+                if (in_array($input->getViewData('variant'), ['lg', 'large'])) {
+                    $classNames->add('form-control-lg');
+                }
+
+                return $classNames;
+            });
 
             $input->group->attributes->input_group->registerMutator('class', function (ClassNames $classNames) use ($input) {
+
                 if ($input->attributes->primary()->class->has('form-control-sm')) {
                     $classNames->add('input-group-sm');
                 }
@@ -82,6 +94,15 @@ class AireBootstrapServiceProvider extends ServiceProvider
                 if ($input->attributes->primary()->class->has('form-control-lg')) {
                     $classNames->add('input-group-lg');
                 }
+
+                if (in_array($input->getViewData('variant'), ['sm', 'small'])) {
+                    $classNames->add('input-group-sm');
+                }
+
+                if (in_array($input->getViewData('variant'), ['lg', 'large'])) {
+                    $classNames->add('input-group-lg');
+                }
+
 
                 return $classNames;
             });
@@ -97,5 +118,6 @@ class AireBootstrapServiceProvider extends ServiceProvider
                 return $classNames;
             });
         });
+
     }
 }
