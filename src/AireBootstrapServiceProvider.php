@@ -137,7 +137,22 @@ class AireBootstrapServiceProvider extends ServiceProvider
         });
 
         Input::registerElementMutator(function (Input $input) {
+
             $input->attributes->registerMutator('class', function (ClassNames $classNames) use ($input) {
+
+                if ('file' === $input->attributes->get('type')) {
+                    $classNames
+                        ->remove('form-control')
+                        ->add('custom-file-input');
+
+                    $input
+                        ->groupAddClass('custom-file')
+                        ->groupRemoveClass('form-group');
+
+                    $input->group->label
+                        ->addClass('custom-file-label')
+                        ->removeClass('cursor-pointer');
+                }
 
                 if ('range' === $input->attributes->get('type')) {
                     $classNames
