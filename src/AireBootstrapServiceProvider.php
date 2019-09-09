@@ -137,6 +137,9 @@ class AireBootstrapServiceProvider extends ServiceProvider
         });
 
         Input::registerElementMutator(function (Input $input) {
+            
+            // Apply a label by default
+            $input->group->label('Choose file');
 
             $input->attributes->registerMutator('class', function (ClassNames $classNames) use ($input) {
 
@@ -144,11 +147,11 @@ class AireBootstrapServiceProvider extends ServiceProvider
                     $classNames
                         ->remove('form-control')
                         ->add('custom-file-input');
-
+                
                     $input
                         ->groupAddClass('custom-file')
                         ->groupRemoveClass('form-group');
-
+                
                     $input->group->label
                         ->addClass('custom-file-label')
                         ->removeClass('cursor-pointer');
