@@ -67,7 +67,7 @@ class AireBootstrapServiceProvider extends ServiceProvider
                     'input' => 'is-invalid',
                     'select' => 'is-invalid',
                     'textarea' => 'is-invalid',
-                    'errors' => 'invalid-feedback d-block',
+                    'group_errors' => 'invalid-feedback d-block',
                     'group_help_text' => 'invalid-feedback d-block',
                 ],
             ],
