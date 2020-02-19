@@ -14,6 +14,10 @@ class AireBootstrapServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(dirname(__DIR__) . '/views', 'aire-bootstrap');
 
+        $this->publishes([
+            dirname(__DIR__).'/views' => $this->app->resourcePath('views/vendor/aire-bootstrap'),
+        ], 'aire-bootstrap-views');
+
         Aire::setTheme('aire-bootstrap', null, [
             'default_classes' => [
                 'group' => 'form-group',
