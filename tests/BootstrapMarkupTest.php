@@ -74,4 +74,13 @@ class BootstrapMarkupTest extends TestCase
         $this->assertSelectorAttribute($html, 'div.form-check > input.form-check-input', 'value', 'radio-1');
         $this->assertSelectorContainsText($html,'div.form-check > label.form-check-label','Radio 1');
     }
+
+    public function test_when_no_label_given_a_label_is_not_generated() : void
+    {
+        $html = $this->aire()
+            ->form()
+            ->input('text-input');
+
+        $this->assertSelectorDoesNotExist($html, 'label');
+    }
 }
