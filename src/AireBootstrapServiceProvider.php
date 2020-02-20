@@ -14,6 +14,10 @@ class AireBootstrapServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(dirname(__DIR__) . '/views', 'aire-bootstrap');
 
+        $this->publishes([
+            dirname(__DIR__).'/views' => $this->app->resourcePath('views/vendor/aire-bootstrap'),
+        ], 'aire-bootstrap-views');
+
         Aire::setTheme('aire-bootstrap', null, [
             'default_classes' => [
                 'group' => 'form-group',
@@ -21,7 +25,7 @@ class AireBootstrapServiceProvider extends ServiceProvider
                 'group_prepend' => 'input-group-prepend',
                 'group_append' => 'input-group-append',
                 'group_help_text' => 'form-text text-muted',
-                'group_errors' => 'd-none',
+                'group_errors' => '',
                 'label' => '',
                 'input' => 'form-control',
 
@@ -137,9 +141,6 @@ class AireBootstrapServiceProvider extends ServiceProvider
         });
 
         Input::registerElementMutator(function (Input $input) {
-            
-            // Apply a label by default
-            $input->group->label('Choose file');
 
             $input->attributes->registerMutator('class', function (ClassNames $classNames) use ($input) {
 
@@ -147,11 +148,11 @@ class AireBootstrapServiceProvider extends ServiceProvider
                     $classNames
                         ->remove('form-control')
                         ->add('custom-file-input');
-                
+
                     $input
                         ->groupAddClass('custom-file')
                         ->groupRemoveClass('form-group');
-                
+
                     $input->group->label
                         ->addClass('custom-file-label')
                         ->removeClass('cursor-pointer');

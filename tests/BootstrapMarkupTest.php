@@ -24,10 +24,10 @@ class BootstrapMarkupTest extends TestCase
             ->id('foo-box')
             ->withoutGroup();
 
-        $this->assertSelectorExists($html, 'div.form-check');
-        $this->assertSelectorAttribute($html, 'div.form-check > input.form-check-input', 'name', 'demo');
-        $this->assertSelectorAttribute($html, 'div.form-check > label.form-check-label', 'for', 'foo-box');
-        $this->assertSelectorContainsText($html, 'div.form-check > label.form-check-label', 'Demo checkbox');
+        $this->assertSelectorDoesNotExist($html,'.form-group');
+        $this->assertSelectorAttribute($html, 'input.custom-control-input', 'name', 'demo');
+        $this->assertSelectorAttribute($html, 'label.custom-control-label', 'for', 'foo-box');
+        $this->assertSelectorContainsText($html, 'label.custom-control-label', 'Demo checkbox');
     }
 
     public function test_a_select_form(): void
@@ -61,7 +61,7 @@ class BootstrapMarkupTest extends TestCase
             ->id('foo-submit-button');
 
         $this->assertSelectorAttribute($html, 'button', 'type', 'submit');
-        $this->assertSelectorAttribute($html, 'button', 'class', 'btn btn-primary');
+        $this->assertSelectorAttribute($html, 'button', 'class', 'btn btn-primary ');
         $this->assertSelectorAttribute($html, 'button', 'id', 'foo-submit-button');
         $this->assertSelectorContainsText($html, 'button', 'Submit Awesome');
     }
@@ -71,7 +71,17 @@ class BootstrapMarkupTest extends TestCase
         $html = $this->aire()->form()
             ->radioGroup(['radio-1'=>'Radio 1','radio-2'=>'Radio 2'],'radio_selector','Foo Radio Selector');
 
-        $this->assertSelectorAttribute($html, 'div.form-check > input.form-check-input', 'value', 'radio-1');
-        $this->assertSelectorContainsText($html,'div.form-check > label.form-check-label','Radio 1');
+        $this->assertSelectorContainsText($html, 'div.form-group > label', 'Foo Radio Selector');
+        $this->assertSelectorAttribute($html,'div.custom-control.custom-radio > input.custom-control-input','value', 'radio-1');
+        $this->assertSelectorAttribute($html,'div.custom-control.custom-radio + div.custom-control.custom-radio > input.custom-control-input','value', 'radio-2');
+    }
+
+    public function test_when_no_label_given_a_label_is_not_generated() : void
+    {
+        $html = $this->aire()
+            ->form()
+            ->input('text-input');
+
+        $this->assertSelectorDoesNotExist($html, 'label');
     }
 }
