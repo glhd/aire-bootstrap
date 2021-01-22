@@ -40,7 +40,7 @@ class AireBootstrapServiceProvider extends ServiceProvider
                 'radio_group' => 'custom-control-input',
                 'radio_group_label' => 'custom-control-label',
                 'radio_group_label_wrapper' => 'custom-control custom-radio',
-                'summary' => '',
+                'summary' => 'alert alert-warning',
                 'button' => 'btn btn-primary',
                 'select' => 'form-control',
                 'textarea' => 'form-control',

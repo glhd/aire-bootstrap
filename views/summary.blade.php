@@ -2,21 +2,21 @@
 <?php /** @var \Illuminate\Support\ViewErrorBag $errors */ ?>
 
 @if (isset($errors) && $errors->any())
-	
+
 	<div {{ $attributes }}>
-		
+
 		{{ trans_choice('aire::common.summary', $errors->count()) }}
-		
+
 		@if($verbose)
-			
-			<ul class="pt-4">
+
+			<ul class="pt-1">
 				@foreach ($errors->all() as $error)
 					<li>{{ $error }}</li>
 				@endforeach
 			</ul>
-			
+
 		@endif
-		
+
 	</div>
-	
+
 @endif
