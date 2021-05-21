@@ -25,6 +25,7 @@ class AireBootstrapServiceProvider extends ServiceProvider
                 'group_prepend' => 'input-group-prepend',
                 'group_append' => 'input-group-append',
                 'group_help_text' => 'form-text text-muted',
+                'group_info_text' => 'form-text text-muted float-right',
                 'group_errors' => '',
                 'label' => '',
                 'input' => 'form-control',
