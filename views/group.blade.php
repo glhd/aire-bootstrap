@@ -2,6 +2,11 @@
 
 <div {{ $attributes }}>
     {{ $label }}
+    @isset($info_text)
+        <div {{ $attributes->info_text }} data-toggle="tooltip" title="{!! $info_text !!}"  data-html="true">
+            <i class="fas fa-info" style="font-size: 1em;"></i>
+        </div>
+    @endisset
 
     @if($prepend || $append)
         <div {{ $attributes->input_group }}>
