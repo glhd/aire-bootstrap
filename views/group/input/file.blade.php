@@ -16,6 +16,11 @@
             <div class="custom-file">
                 {{ $element }}
                 {{ $label }}
+                @isset($info_text)
+                    <div {{ $attributes->info_text }} data-toggle="tooltip" title="{!! $info_text !!}"  data-html="true">
+                        <i class="fas fa-info" style="font-size: 1em;"></i>
+                    </div>
+                @endisset
             </div>
             
             @if($append)
